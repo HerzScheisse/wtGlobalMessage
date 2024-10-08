@@ -1,0 +1,2 @@
+# GlobalMessage
+Global Message System

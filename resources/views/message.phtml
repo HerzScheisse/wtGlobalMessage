@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\FlashMessages;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Http\RequestHandlers\LoginPage;
+
+use function route;
+
+?>
+
+<div class="text-align center">
+    <?= FlashMessages::addMessage(I18N::translate('Global Message Text') . ' <a class="alert-link" href="' . route(LoginPage::class) . '"><span dir="ltr">' . I18N::translate('Sign in') . '</span></a>', 'danger') ?>
+</div>
