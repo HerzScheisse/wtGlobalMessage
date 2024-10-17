@@ -44,12 +44,12 @@ class GlobalMessage extends AbstractModule implements ModuleCustomInterface, Mod
 
     public function customModuleVersion(): string
     {
-        return '1.0.0';
+        return '1.0.1';
     }
 
     public function customModuleLatestVersionUrl(): string
     {
-        return 'https://github.com/HerzScheisse/wtGlobalMessage/latest-version.txt';
+        return 'https://github.com/HerzScheisse/wtGlobalMessage/raw/main/latest-version.txt';
     }
 
     public function customModuleSupportUrl(): string
@@ -59,12 +59,23 @@ class GlobalMessage extends AbstractModule implements ModuleCustomInterface, Mod
 
     public function customTranslations(string $language): array
     {
-        $lang_dir   = $this->resourcesFolder() . 'lang/';
-        $file       = $lang_dir . $language . '.mo';
-        if (file_exists($file)) {
-            return (new Translation($file))->asArray();
-        } else {
-            return [];
+        switch ($language) {
+            case 'en-AU':
+            case 'en-GB':
+            case 'en-US':
+                return [
+                    'Global Message'        => 'Global Message'
+                    'Global Message Text'   => 'You are not logged in! Displayed data is limited!'
+                ];
+
+            case 'de':
+                return [
+                    'Global Message'        => 'Globale Nachricht'
+                    'Global Message Text'   => 'Du bist nicht eingeloggt! Angezeigte Daten sind stark limitiert!'
+                ];
+
+            default:
+                return [];
         }
     }
 
