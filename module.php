@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Global Message Text.
- */
-
 declare(strict_types=1);
 
 namespace GlobalMessageNameSpace;
