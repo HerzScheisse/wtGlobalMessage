@@ -5,11 +5,13 @@ declare(strict_types=1);
 use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Http\RequestHandlers\LoginPage;
+use Fisharebest\Webtrees\Http\RequestHandlers\RegisterPage;
 
 use function route;
 
+FlashMessages::addMessage(I18N::translate('Global Message Text') .
+    '<br/><br/> <a class="alert-link" href="' . route(LoginPage::class) . '">' .
+    '<span dir="ltr">' . I18N::translate('Sign in') . '</span></a> -' .
+    ' <a class="alert-link" href="' . route(RegisterPage::class) . '">' .
+    '<span dir="ltr">' . I18N::translate('Request a new user account') . '</span></a>', 'danger')
 ?>
-
-<div class="text-align center">
-    <?= FlashMessages::addMessage(I18N::translate('Global Message Text') . ' <a class="alert-link" href="' . route(LoginPage::class) . '"><span dir="ltr">' . I18N::translate('Sign in') . '</span></a>', 'danger') ?>
-</div>

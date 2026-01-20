@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
-namespace GlobalMessageNameSpace;
+namespace HerzScheisse\Webtrees\Module\GlobalMessage;
 
-require __DIR__ . '/GlobalMessage.php';
+use Composer\Autoload\ClassLoader;
+
+$loader = new ClassLoader();
+$loader->addPsr4('HerzScheisse\\Webtrees\\Module\\GlobalMessage\\', __DIR__);
+$loader->register();
 
 return new GlobalMessage();
